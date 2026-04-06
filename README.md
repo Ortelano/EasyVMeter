@@ -1,17 +1,36 @@
-# EasyVMeter
-Haptic Input Gain Monitoring System
+# Easy Vmeter: Monitorización Háptica Accesible
 
-Easy Vmeter: Monitorización háptica para una producción accesible
+**Easy Vmeter** es un dispositivo de código abierto diseñado para facilitar la producción musical a personas con discapacidad visual. Permite monitorizar la ganancia de entrada y los niveles de audio mediante una respuesta vibratoria (háptica) en tiempo real.
 
-Este proyecto nace de una experiencia personal en mis clases de sonido. Durante varios años, he trabajado con un alumno invidente utilizando Reaper y herramientas como OSARA. Aunque hemos logrado avanzar muchísimo en composición y mezcla, nos encontramos con un obstáculo crítico: la gestión de la ganancia de entrada. Las soluciones actuales solo avisan cuando la señal ya ha clipado, lo cual es insuficiente para realizar una grabación profesional de forma autónoma.
-Ante este reto, decidí diseñar una herramienta que tradujera los niveles de señal en vibraciones físicas. Easy Vmeter es un dispositivo basado en el procesador RP2040 que emula una superficie de control MIDI. Al utilizar el protocolo Mackie Control, el dispositivo es capaz de capturar la información de nivel del DAW (por defecto, el canal 1) y convertirla en una respuesta háptica en tiempo real. Al ser un protocolo estándar, el dispositivo es compatible con la gran mayoría de los DAW del mercado.
-Mi objetivo es que esta herramienta sea accesible para todos. Por ello, comparto este proyecto de forma Open Source, incluyendo el código, los diseños de FreeCAD para la carcasa 3D y toda la documentación necesaria para que cualquier persona pueda construirlo y mejorar su flujo de trabajo.
+## ✨ Características Principales
+* **Protocolo Mackie Control:** Compatible de forma nativa con la mayoría de DAWs (Reaper, Pro Tools, etc.).
+* **Feedback Táctil:** Traduce niveles de volumen (0 a 11) en diferentes intensidades de vibración.
+* **Modo Solo:** Filtrado inteligente para centrarse únicamente en las partes más fuertes de la señal.
+* **Seguridad Avanzada:** * Sistema de enfriamiento (cooldown) para evitar saturación del motor en eventos de clip.
+  * Timeout automático de 0.5s si se pierde la señal MIDI para proteger el hardware.
 
-Aquí se encuentran todos los archivos necesarios para replicar el proyecto i/o modificarlo. Además de un documento donde se explica todo el proceso.
+## 🛠️ Hardware
+* **Cerebro:** Waveshare RP2040-Zero.
+* **Actuador:** Motor de vibración controlado por PWM (GP29).
+* **Carcasa:** Archivos de diseño para impresión 3D incluidos (FreeCAD).
 
-Se puede acceder también a unos videos explicativos de cada apartado:
-Explicación básica de funcionamiento: 
-Introducción y explicación del proyecto:
-Soldadura y ensamblaje del dispositivo:
-Diseño 3d:
-Análisis del código:
+## 🚀 Instalación
+1. Descarga el firmware de CircuitPython y cárgalo en tu RP2040-Zero.
+2. Copia los archivos `boot.py`, `code.py` y la carpeta de librerías en la raíz del dispositivo.
+3. Configura el dispositivo en tu DAW como una superficie de control Mackie Control (usa el puerto "EasyVMeter In/Out").
+
+## 📂 Estructura del Repositorio
+* `/Software`: Código fuente en CircuitPython y librerías necesarias.
+* `/Hardware`: Esquemas de conexión y lista de componentes.
+* `/3D_Design`: Archivos FreeCAD y STLs para la carcasa.
+* `/Docs`: Manual completo de usuario y montaje.
+
+## 📺 Tutoriales en Vídeo
+- [Introducción y Propósito](https://youtu.be/ggoi_HVR03I)
+- [Hardware y Electrónica](https://youtu.be/q_lWQ2pnNio)
+- [Diseño 3D (FreeCAD)](https://youtu.be/SDiyq6ZNVbk)
+- [Análisis del Código](https://youtu.be/Rb0bXWAjWm8)
+- [Demo e Integración DAW](https://youtu.be/bEbQwglQXCA)
+
+---
+*Desarrollado con el objetivo de hacer la producción musical accesible para todos.*
