@@ -21,7 +21,6 @@
 
 ## 📂 Estructura del Repositorio
 * `/Software`: Código fuente en CircuitPython y librerías necesarias.
-* `/Hardware`: Esquemas de conexión y lista de componentes.
 * `/3D_Design`: Archivos FreeCAD y STLs para la carcasa.
 * `/Docs`: Manual completo de usuario y montaje.
 
